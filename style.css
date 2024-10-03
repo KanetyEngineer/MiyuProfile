@@ -1,0 +1,89 @@
+.header {
+    background-color: #4F6F52;
+    height: 150px;
+    font-size: xx-large;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* コンテナ */
+#container {
+    display: grid;
+    grid-template-rows: 200px 200px;
+    grid-template-columns: 300px 50px 1fr;
+    grid-template-areas:
+        "icon space name"
+        "icon space context";
+    padding: 50px;
+}
+
+/* アイテム */
+#icon {
+    grid-area: icon;
+    position: relative; /* positionをrelativeに変更 */
+    max-width: 100%; /* 画像が親要素に収まるように */
+}
+
+#name {
+    grid-area: name;
+}
+
+#context {
+    grid-area: context;
+}
+
+#space {
+    grid-area: space;
+    background: #fff;
+}
+
+
+
+/* メディアクエリ */
+@media (max-width: 768px) {
+    #container {
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "icon"
+            "name"
+            "context";
+        padding: 20px;
+    }
+
+    .header {
+        height: auto; /* ヘッダーの高さを自動に */
+        font-size: large; /* フォントサイズを小さく */
+    }
+
+    #icon {
+        width: 100%; /* アイコンの幅を100%に */
+        height: auto; /* 高さを自動に */
+    }
+
+    #name h1 {
+        font-size: 24px; /* 名前のフォントサイズを調整 */
+    }
+
+    #context p {
+        font-size: 16px; /* テキストサイズを調整 */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: medium; /* 更にフォントサイズを小さく */
+    }
+
+    #name h1 {
+        font-size: 20px; /* 更に名前のフォントサイズを調整 */
+    }
+
+    #context p {
+        font-size: 14px; /* 更にテキストサイズを調整 */
+    }
+}
+
+
